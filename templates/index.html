@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/music.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/jukebox.css') }}">
   <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon-beer.png') }}">
 </head>
 <body>
@@ -136,16 +137,166 @@
         </header>
 
         <div class="spotlight" id="spotlight"></div>
-        <ol class="week-list" id="week-list" aria-label="Programação semanal"></ol>
+        
+        <div class="music-lower-grid">
+          <ol class="week-list" id="week-list" aria-label="Programação semanal"></ol>
 
-        <div class="jukebox-block" id="jukebox" aria-labelledby="jukebox-title">
-          <div class="jukebox-intro">
-            <p class="eyebrow">Jukebox</p>
-            <h3 id="jukebox-title">Bota uma aí</h3>
-            <p>Escolha uma faixa e aperte play. Esta jukebox é demonstrativa: sem arquivos de áudio autorizados, nada toca de verdade, e a interface avisa isso.</p>
+          <div class="jukebox-block" id="jukebox" aria-labelledby="spotify-player-title">
+            <div class="jukebox-intro">
+              <p class="eyebrow">Jukebox do Saideira</p>
+              <p>Encontre sua música, mande seu pedido e deixe a trilha sonora por nossa conta.</p>
+            </div>
+
+            <div class="saideira-phone">
+              <div class="phone-frame">
+                <div class="phone-camera" aria-hidden="true"></div>
+
+                <div class="phone-screen">
+                  <header class="phone-header">
+                    <div class="phone-brand">
+                      <span class="phone-brand-icon" aria-hidden="true">♫</span>
+                      <div>
+                        <span class="phone-overline">A trilha sonora do</span>
+                        <strong>SAIDEIRA</strong>
+                      </div>
+                    </div>
+                    <span class="phone-live"><span></span> NO BOTECO</span>
+                  </header>
+
+                  <div class="phone-tabs" role="tablist" aria-label="Área musical">
+                    <button
+                      class="phone-tab is-active"
+                      id="spotify-tab-playlist"
+                      type="button"
+                      role="tab"
+                      aria-selected="true"
+                      aria-controls="spotify-panel-playlist"
+                      data-spotify-tab="playlist">
+                      Playlist da casa
+                    </button>
+                    <button
+                      class="phone-tab"
+                      id="spotify-tab-search"
+                      type="button"
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="spotify-panel-search"
+                      data-spotify-tab="search">
+                      Buscar música
+                    </button>
+                  </div>
+
+                  <section
+                    class="phone-panel"
+                    id="spotify-panel-playlist"
+                    role="tabpanel"
+                    aria-labelledby="spotify-tab-playlist"
+                    data-spotify-panel="playlist">
+
+                    <div class="phone-playlist-heading">
+                      <div class="phone-playlist-art" aria-hidden="true">
+                        <span>SAI</span>
+                        <strong>DEIRA</strong>
+                        <span>♫</span>
+                      </div>
+
+                      <div class="phone-playlist-info">
+                        <span class="phone-overline">PLAYLIST OFICIAL</span>
+                        <h4>Saideira</h4>
+                        <p>A playlist do nosso boteco 🍻</p>
+                        <a
+                          class="phone-spotify-link"
+                          href="https://open.spotify.com/playlist/3AUbHIY3ijtyhvs8YvG7HY"
+                          target="_blank"
+                          rel="noopener noreferrer">
+                          Abrir no Spotify ↗
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="phone-embed-wrap">
+                      <iframe
+                        title="Playlist Saideira no Spotify"
+                        src="https://open.spotify.com/embed/playlist/3AUbHIY3ijtyhvs8YvG7HY?theme=0"
+                        width="100%"
+                        height="352"
+                        loading="lazy"
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        style="border:0; border-radius:12px"
+                        allowfullscreen>
+                      </iframe>
+                    </div>
+
+                    <button
+                      class="phone-secondary-action"
+                      type="button"
+                      data-spotify-tab="search">
+                      <span aria-hidden="true">⌕</span>
+                      Procurar uma música para pedir
+                    </button>
+                  </section>
+
+                  <section
+                    class="phone-panel"
+                    id="spotify-panel-search"
+                    role="tabpanel"
+                    aria-labelledby="spotify-tab-search"
+                    data-spotify-panel="search"
+                    hidden>
+
+                    <div class="phone-search-intro">
+                      <span class="phone-overline">ESCOLHA O PRÓXIMO SOM</span>
+                      <h4>Qual vai ser?</h4>
+                      <p>Procure por música ou artista e envie seu pedido.</p>
+                    </div>
+
+                    <form class="phone-search-form" id="spotify-search-form">
+                      <label class="visually-hidden" for="spotify-search-input">
+                        Nome da música ou artista
+                      </label>
+                      <input
+                        id="spotify-search-input"
+                        type="search"
+                        name="q"
+                        placeholder="Ex.: Evidências, Jorge & Mateus..."
+                        minlength="2"
+                        maxlength="100"
+                        autocomplete="off"
+                        required>
+                      <button type="submit" aria-label="Pesquisar músicas">
+                        <span aria-hidden="true">⌕</span>
+                      </button>
+                    </form>
+
+                    <p
+                      class="phone-search-status"
+                      id="spotify-search-status"
+                      role="status"
+                      aria-live="polite">
+                      Digite o nome de uma música ou artista.
+                    </p>
+
+                    <div
+                      class="phone-search-results"
+                      id="spotify-search-results">
+                    </div>
+                  </section>
+
+                  <footer class="phone-footer">
+                    <span>FEITO PRA FICAR ATÉ A SAIDEIRA</span>
+                    <span aria-hidden="true">🍺 ♫</span>
+                  </footer>
+                </div>
+              </div>
+
+              <p class="phone-caption">
+                <span aria-hidden="true">♫</span>
+                Você escolhe o som. A gente cuida do resto.
+              </p>
+            </div>
           </div>
-          <div class="jukebox" id="jukebox-machine"></div>
-        </div>
+        </div> <!-- Fechamento correto da .music-lower-grid -->
+
       </div>
     </section>
   </main>

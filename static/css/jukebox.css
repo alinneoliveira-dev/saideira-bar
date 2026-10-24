@@ -1,0 +1,770 @@
+
+/* Jukebox do Saideira */
+
+.jukebox-block {
+  --jb-bg: #111311;
+  --jb-panel: #1b1e1b;
+  --jb-border: #343934;
+  --jb-cream: #f5ead7;
+  --jb-muted: #b7b8ae;
+  --jb-green: #1ed760;
+  --jb-red: #8e2c35;
+
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(300px, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+  margin-top: clamp(3rem, 7vw, 6rem);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  overflow: hidden;
+  border: 1px solid rgba(173, 129, 69, 0.3);
+  border-radius: 24px;
+  background:
+    radial-gradient(ellipse at 15% 20%, rgba(142, 44, 53, 0.18), transparent 45%),
+    linear-gradient(145deg, #171916, #0c0e0c);
+}
+
+.jukebox-intro {
+  max-width: 440px;
+}
+
+.jukebox-intro h3 {
+  margin: 0 0 1rem;
+  color: var(--jb-cream);
+  font-family: "Alfa Slab One", Georgia, serif;
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.12;
+}
+
+.jukebox-intro > p:last-child {
+  max-width: 38ch;
+  color: var(--jb-muted);
+  line-height: 1.8;
+}
+
+.saideira-phone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.phone-frame {
+  position: relative;
+  width: min(100%, 360px);
+  padding: 10px;
+  border: 2px solid #555750;
+  border-radius: 38px;
+  background: linear-gradient(145deg, #44463f, #171916 35%, #30322d);
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.42),
+    inset 0 0 0 2px #090a09;
+}
+
+.phone-camera {
+  position: absolute;
+  z-index: 2;
+  top: 15px;
+  left: 50%;
+  width: 72px;
+  height: 18px;
+  border: 3px solid #111311;
+  border-radius: 20px;
+  background: #050605;
+  transform: translateX(-50%);
+}
+
+.phone-screen {
+  overflow: hidden;
+  border-radius: 29px;
+  background: var(--jb-bg);
+  color: var(--jb-cream);
+}
+
+.phone-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 2.6rem 1rem 1rem;
+  border-bottom: 1px solid #292d29;
+}
+
+.phone-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.phone-brand-icon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--jb-red);
+  color: white;
+  font-size: 1.6rem;
+}
+
+.phone-brand > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.phone-brand strong {
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+}
+
+.phone-overline {
+  display: block;
+  color: var(--jb-muted);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+}
+
+.phone-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #d4d7cf;
+  font-size: 0.58rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.phone-live > span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--jb-green);
+  box-shadow: 0 0 8px rgba(30, 215, 96, 0.5);
+}
+
+.phone-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3rem;
+  padding: 0.75rem 0.75rem 0;
+}
+
+.phone-tab {
+  padding: 0.7rem 0.35rem;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--jb-muted);
+  font: inherit;
+  font-size: 0.77rem;
+  cursor: pointer;
+}
+
+.phone-tab:hover {
+  color: white;
+}
+
+.phone-tab.is-active {
+  border-bottom-color: var(--jb-green);
+  color: white;
+  font-weight: 700;
+}
+
+.phone-panel {
+  min-height: 330px;
+  padding: 1rem 0.8rem;
+}
+
+.phone-panel[hidden] {
+  display: none;
+}
+
+.phone-playlist-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.phone-playlist-art {
+  display: flex;
+  flex: 0 0 100px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  border: 1px solid rgba(245, 234, 215, 0.15);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 70% 20%, rgba(215, 161, 77, 0.35), transparent 35%),
+    linear-gradient(145deg, #752b32, #201c18 80%);
+  color: #f4d49a;
+  font-family: "Alfa Slab One", Georgia, serif;
+  font-size: 0.85rem;
+  line-height: 1.25;
+  letter-spacing: 0.08em;
+}
+
+.phone-playlist-art strong {
+  font-size: 1.15rem;
+}
+
+.phone-playlist-art span:last-child {
+  margin-top: 0.25rem;
+  font-size: 1.5rem;
+}
+
+.phone-playlist-info {
+  min-width: 0;
+}
+
+.phone-playlist-info h4,
+.phone-search-intro h4 {
+  margin: 0.3rem 0;
+  color: white;
+  font-size: 1.15rem;
+  line-height: 1.25;
+}
+
+.phone-playlist-info p,
+.phone-search-intro p {
+  margin: 0.3rem 0 0.7rem;
+  color: var(--jb-muted);
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
+.phone-spotify-link {
+  display: inline-block;
+  color: var(--jb-green);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.phone-spotify-link:hover {
+  text-decoration: underline;
+}
+
+.phone-embed-wrap {
+  overflow: hidden;
+  border-radius: 12px;
+  background: #181a18;
+}
+
+.phone-embed-wrap iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+.phone-secondary-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 0.8rem;
+  padding: 0.8rem;
+  border: 1px solid #42463f;
+  border-radius: 12px;
+  background: #20231f;
+  color: white;
+  font: inherit;
+  font-size: 0.76rem;
+  cursor: pointer;
+}
+
+.phone-secondary-action:hover {
+  border-color: var(--jb-green);
+}
+
+.phone-secondary-action > span {
+  color: var(--jb-green);
+  font-size: 1.25rem;
+}
+
+.phone-search-intro {
+  margin-bottom: 1rem;
+}
+
+.phone-search-form {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.phone-search-form input {
+  min-width: 0;
+  width: 100%;
+  padding: 0.8rem 0.7rem;
+  border: 1px solid #41453e;
+  border-radius: 10px;
+  outline: none;
+  background: #242723;
+  color: white;
+  font: inherit;
+  font-size: 0.78rem;
+}
+
+.phone-search-form input::placeholder {
+  color: #9b9e94;
+}
+
+.phone-search-form input:focus {
+  border-color: var(--jb-green);
+  box-shadow: 0 0 0 2px rgba(30, 215, 96, 0.12);
+}
+
+.phone-search-form button {
+  flex: 0 0 44px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--jb-green);
+  color: #102115;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.phone-search-form button:hover {
+  filter: brightness(1.08);
+}
+
+.phone-search-status {
+  min-height: 1.4rem;
+  margin: 0.75rem 0;
+  color: var(--jb-muted);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.phone-search-status.is-error {
+  color: #ff9a9a;
+}
+
+.phone-search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.spotify-track {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 0.65rem;
+  padding: 0.6rem;
+  border: 1px solid #30342e;
+  border-radius: 12px;
+  background: var(--jb-panel);
+}
+
+.spotify-track-cover {
+  overflow: hidden;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 7px;
+  background: #2c302a;
+  color: var(--jb-green);
+}
+
+.spotify-track-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.spotify-track-info {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+.spotify-track-title,
+.spotify-track-artist,
+.spotify-track-album {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.spotify-track-title {
+  color: white;
+  font-size: 0.76rem;
+}
+
+.spotify-track-artist,
+.spotify-track-album {
+  color: var(--jb-muted);
+  font-size: 0.66rem;
+}
+
+.spotify-track-actions {
+  display: flex;
+  grid-column: 1 / -1;
+  gap: 0.5rem;
+}
+
+.spotify-request-button,
+.spotify-share-button {
+  flex: 1;
+  min-height: 34px;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid #41463f;
+  border-radius: 8px;
+  background: #292d28;
+  color: white;
+  font: inherit;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.spotify-request-button {
+  border-color: transparent;
+  background: var(--jb-green);
+  color: #102115;
+  font-weight: 700;
+}
+
+.spotify-request-button:hover {
+  filter: brightness(1.08);
+}
+
+.spotify-share-button:hover {
+  border-color: #888d80;
+}
+
+.spotify-request-button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.spotify-request-button.is-requested {
+  background: #ccebd4;
+  color: #163d21;
+  cursor: default;
+}
+
+.spotify-request-feedback {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #b9edc7;
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.phone-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.8rem 1rem 1rem;
+  border-top: 1px solid #292d29;
+  color: #9b9e94;
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+}
+
+.phone-caption {
+  margin: 0;
+  color: var(--jb-muted);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.phone-caption span {
+  color: #d7a14d;
+}
+
+.jukebox-block button:focus-visible,
+.jukebox-block a:focus-visible,
+.jukebox-block input:focus-visible {
+  outline: 2px solid var(--jb-green);
+  outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .jukebox-block {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+    padding: 1.25rem;
+    border-radius: 18px;
+  }
+
+  .jukebox-intro {
+    max-width: none;
+  }
+
+  .jukebox-intro h3 {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+
+  .phone-frame {
+    width: min(100%, 360px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .phone-frame {
+    animation: phone-arrive 550ms ease-out both;
+  }
+
+  @keyframes phone-arrive {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+
+/* ========================================
+   SEÇÃO DE MÚSICA: LAYOUT
+   Destaque em largura total. Abaixo, a agenda (ingressos)
+   à esquerda e o celular, em tamanho normal, à direita.
+======================================== */
+
+.music > .container {
+  --jb-phone: 360px;                       /* largura do celular */
+  --jb-card-pad: 1.5rem;                   /* respiro do card da jukebox */
+  --jb-col: calc(var(--jb-phone) + var(--jb-card-pad) * 2 + 2px);
+  --stub: 7.5rem;                          /* largura do canhoto do ingresso */
+}
+
+/* Destaque: ocupa toda a largura, até a direita */
+.music .spotlight {
+  width: 100%;
+  margin-bottom: 1.8rem;
+}
+
+/* ---------- Agenda: ingressos empilhados ---------- */
+.music .week-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);   /* uma coluna (o music.css define colunas automáticas) */
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.music .week-list li {
+  min-height: 185px;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  box-sizing: border-box;
+}
+
+.music .week-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--stub) minmax(0, 1fr);
+  grid-template-areas:
+    "when type"
+    "when title"
+    "when text";
+  grid-template-rows: auto auto 1fr;
+  column-gap: 1.25rem;
+  row-gap: 0.2rem;
+  min-height: 0;
+  padding: 0 1rem 0 0;
+  overflow: hidden;                        /* corta as meias-luas do picote */
+  border: 1px solid rgba(217, 154, 67, 0.35);
+  border-radius: 10px;
+  background: var(--marrom);
+}
+
+/* Picote: duas meias-luas na divisão entre canhoto e corpo */
+.music .week-card::before,
+.music .week-card::after {
+  content: "";
+  position: absolute;
+  left: calc(var(--stub) - 8px);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--carvao);
+  box-shadow: inset 0 0 0 1px rgba(217, 154, 67, 0.35);
+}
+.music .week-card::before { top: -8px; }
+.music .week-card::after  { bottom: -8px; }
+
+/* Canhoto: dia e horário */
+.music .week-card .week-when {
+  grid-area: when;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  margin: 0;
+  padding: 2rem 0.4rem;  
+  background: var(--bordo);
+  border-right: 2px dashed rgba(244, 233, 216, 0.45);
+  color: var(--creme);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  line-height: 1.1;
+  text-align: center;
+}
+.music .week-card .week-when small {
+  display: block;
+  margin: 0;
+  color: var(--ambar-claro);
+  font-family: var(--font-label);
+  font-size: 1.1rem;
+  letter-spacing: 0.12em;
+}
+
+
+/* Corpo: tipo, título e descrição */
+.music .week-card .week-type {
+  grid-area: type;
+  justify-self: start;
+  margin-top: 0.6rem;
+  padding: 0.15rem 0.65rem;
+  border-radius: 100px;
+  background: rgba(217, 154, 67, 0.14);
+}
+.music .week-card h3 {
+  grid-area: title;
+  font-size: 1.2rem;
+}
+.music .week-card > p:last-child {
+  grid-area: text;
+  align-self: start;
+  padding-bottom: 0.6rem;
+  font-size: 0.92rem;
+}
+
+/* Noite em destaque: canhoto âmbar */
+.music .week-card.is-active {
+  background: linear-gradient(90deg, #7a2f20, var(--bordo));
+  border-color: var(--ambar);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+}
+.music .week-card.is-active .week-when {
+  background: var(--ambar);
+  border-right-color: rgba(23, 19, 15, 0.45);
+  color: var(--carvao);
+}
+.music .week-card.is-active .week-when small { color: #3c2a15; }
+
+/* ---------- Jukebox: card com o celular em tamanho normal ---------- */
+.music .jukebox-block {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 1.25rem;
+  margin: clamp(2.5rem, 6vw, 4rem) 0 0;
+  padding: var(--jb-card-pad);
+}
+.music .jukebox-intro { max-width: none; }
+.music .jukebox-intro h3 { font-size: clamp(1.7rem, 2.4vw, 2.2rem); }
+
+.music .saideira-phone { width: 100%; min-width: 0; }
+
+/* Largura fixa, igual nas duas abas */
+.music .phone-frame {
+  width: 100%;
+  max-width: var(--jb-phone);
+  flex-shrink: 0;
+}
+.music .phone-screen,
+.music .phone-panel {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.music .phone-panel { min-height: 300px; }
+.music .phone-panel[hidden] { display: none; }
+
+
+/* AGENDA + JUKEBOX: duas colunas com espaço de verdade */
+
+.music .music-lower-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(380px, 440px);
+  align-items: start;
+  gap: 2rem;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+/* ING RESSOS: coluna esquerda mais compacta */
+.music .music-lower-grid .week-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* PLAYER: coluna direita com largura reservada */
+.music .music-lower-grid .jukebox-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Introdução do player */
+.music .jukebox-intro {
+  width: 100%;
+  max-width: none;
+}
+
+/* Celular */
+.music .saideira-phone {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.music .phone-frame {
+  width: 100%;
+  max-width: 340px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.music .phone-screen,
+.music .phone-panel {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.music .phone-panel[hidden] {
+  display: none;
+}
+
+/* Tablet e celular: empilha os dois blocos */
+@media (max-width: 900px) {
+  .music .music-lower-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .music .music-lower-grid .jukebox-block {
+    width: 100%;
+    max-width: 460px;
+    justify-self: center;
+  }
+}
