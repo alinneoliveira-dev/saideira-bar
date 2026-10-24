@@ -5,7 +5,7 @@ import * as cart from "./cart.js";
 import { initMenu } from "./menu.js";
 import { initFeatured } from "./featured.js";
 import { initMusic } from "./music.js";
-import { initJukebox } from "./jukebox.js";
+import { initSpotify } from "./spotify.js";
 import { initNav, initCartUI, showToast } from "./ui.js";
 import { el } from "./format.js";
 
@@ -49,4 +49,4 @@ cart.load();
 initMenu({ onAdd: handleAdd });
 initFeatured({ onAdd: handleAdd });
 initMusic();
-initJukebox();
+initSpotify();
