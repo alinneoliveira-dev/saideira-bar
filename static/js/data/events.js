@@ -17,4 +17,4 @@ export const EVENTS = [
 // comportamento do destaque musical:
 //  "fixed"  -> sempre destaca o evento com highlight: true
 //  "today"  -> destaca o evento de hoje; se não houver, cai no destaque fixo
-export const HIGHLIGHT_MODE = "fixed";
+export const HIGHLIGHT_MODE = "today";

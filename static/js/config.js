@@ -16,7 +16,6 @@ export const CONFIG = {
     phone: "[11999999999]",
     social: [
       { label: "Instagram", handle: "@saideira" },
-      { label: "Facebook", handle: "saideira" },
     ]
   }
 };

@@ -1,4 +1,3 @@
-
 /* Jukebox do Saideira */
 
 .jukebox-block {
@@ -558,8 +557,8 @@
 
 .music .week-list li {
   min-height: 185px;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 0;      /* sem respiro aqui: o canhoto precisa encostar no topo e na base do ingresso */
+  padding-bottom: 0;
   box-sizing: border-box;
 }
 
@@ -630,7 +629,7 @@
 .music .week-card .week-type {
   grid-area: type;
   justify-self: start;
-  margin-top: 0.6rem;
+  margin-top: 2.1rem;   /* o respiro que estava no li passou para o conteúdo */
   padding: 0.15rem 0.65rem;
   border-radius: 100px;
   background: rgba(217, 154, 67, 0.14);
@@ -642,7 +641,7 @@
 .music .week-card > p:last-child {
   grid-area: text;
   align-self: start;
-  padding-bottom: 0.6rem;
+  padding-bottom: 2.1rem;
   font-size: 0.92rem;
 }
 
@@ -684,7 +683,15 @@
   min-width: 0;
   box-sizing: border-box;
 }
-.music .phone-panel { min-height: 300px; }
+/* Altura fixa: as duas abas (Playlist e Buscar) ficam do mesmo tamanho.
+   Se o conteúdo passar disso, rola dentro do celular. Ajuste o valor se quiser mais/menos altura. */
+.music .phone-panel {
+  height: 520px;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #42463f transparent;
+}
 .music .phone-panel[hidden] { display: none; }
 
 
@@ -756,7 +763,6 @@
   display: none;
 }
 
-/* Tablet e celular: empilha os dois blocos */
 @media (max-width: 900px) {
   .music .music-lower-grid {
     grid-template-columns: minmax(0, 1fr);
