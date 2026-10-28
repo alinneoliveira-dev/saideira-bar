@@ -85,7 +85,7 @@ export function initCartUI() {
     btn.addEventListener("click", () => { close(); location.hash = "#cardapio"; });
     return el("div", { class: "cart-empty" },
       el("strong", { text: "Sacolinha vazia" }),
-      el("p", { text: "Ainda não tem nada por aqui. Que tal um chope e uma porção de batata?" }),
+      el("p", { text: "Ainda não tem nada por aqui. Que tal um chopp e uma porção de batata?" }),
       btn);
   }
 

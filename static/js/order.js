@@ -17,3 +17,5 @@ export function buildWhatsAppUrl(number, summary) {
   if (!digits || !summary) return null;
   return `https://wa.me/${digits}?text=${encodeURIComponent(summary)}`;
 }
+
+
