@@ -4,7 +4,7 @@ export const CONFIG = {
   tagline: "A última, que nunca é a última.",
   heroImage: "/static/img/hero-cerveja.png",
 
-  whatsappNumber: "11993130498",
+  whatsappNumber: "11999999999",
 
   footer: {
     address: "Rua sem saída 999, SP",
